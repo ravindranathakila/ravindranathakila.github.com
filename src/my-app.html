@@ -90,17 +90,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <!-- Drawer content -->
             <app-drawer>
-                <app-toolbar>Menu</app-toolbar>
+                <app-toolbar>Go to</app-toolbar>
                 <iron-selector selected="[[page]]"
                                attr-for-selected="name"
                                class="drawer-list"
                                role="navigation">
-                    <a name="view1"
-                       href="/view1">View One</a>
-                    <a name="view2"
-                       href="/view2">View Two</a>
-                    <a name="view3"
-                       href="/view3">View Three</a>
                     <a name="introduction"
                        href="/introduction">Introduction</a>
                 </iron-selector>
@@ -114,17 +108,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             effects="waterfall">
                     <app-toolbar>
                         <paper-icon-button icon="menu"
+                                           title="Help"
                                            drawer-toggle></paper-icon-button>
-                        <div title>My App</div>
+                        <div title>Saving the planet, one service at a time</div>
                     </app-toolbar>
                 </app-header>
 
                 <iron-pages role="main"
                             selected="[[page]]"
                             attr-for-selected="name">
-                    <my-view1 name="view1"></my-view1>
-                    <my-view2 name="view2"></my-view2>
-                    <my-view3 name="view3"></my-view3>
                     <my-introduction name="introduction"></my-introduction>
                 </iron-pages>
 
@@ -155,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ],
 
             _routePageChanged: function (page) {
-                this.page = page || 'view1';
+                this.page = page || 'introduction';
             },
 
             _pageChanged: function (page) {
