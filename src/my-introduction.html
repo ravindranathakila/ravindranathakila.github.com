@@ -13,52 +13,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-introduction">
 
+    <style is="custom-style">
+        paper-card {
+            --paper-card-header-color: #bdced7;
+        }
+    </style>
+
     <template>
 
-        <style>
-            :host {
-                display: block;
-                padding: 10px;
-            }
+        <paper-tabs selected="{{selected}}"
+                    autoselect="0">
+            <paper-tab>SAVING</paper-tab>
+            <paper-tab>PLANET</paper-tab>
+            <paper-tab>SERVICE</paper-tab>
+        </paper-tabs>
 
-            .card {
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                padding: 16px;
-                margin: 24px;
-                border-radius: 5px;
-                background-color: #fff;
-                color: #757575;
-            }
-
-            .circle {
-                display: inline-block;
-                height: 64px;
-                width: 64px;
-                border-radius: 50%;
-                background: #ddd;
-                line-height: 64px;
-                font-size: 30px;
-                color: #555;
-                text-align: center;
-            }
-
-            h1 {
-                font-size: 22px;
-                margin: 16px 0;
-                color: #212121;
-            }
-        </style>
-
-        <div class="card">
-            <h1>This isn't about me</h1>
-            <p>I intend to publish a few things here</p>
-            <ul>
-                <li>My progress on Microservices implementation (Scarcity)</li>
-                <li>Micro Technogy Tutorials</li>
-                <li>My opinion on how certain technology solutions can be implemented</li>
-            </ul>
-            <sub>Meanwhile you can connect me via LinkedIn for any professional matters: https://sg.linkedin.com/in/ravindranathakila</sub>
-        </div>
+        <iron-pages selected="{{selected}}">
+            <paper-card heading="&nbsp;Generally, planets don't need saving unless they are being hit by a metoerite or eaten up by a star."
+                        image="https://synian.files.wordpress.com/2013/05/earth-snoopy_sophie-32847147-1920-1080.jpg">
+            </paper-card>
+            <paper-card heading="&nbsp;However, what we mean when we talk about 'saving the planet' is to save ourselves."
+                        image="http://www.iop.org/news/13/jul/img_full_60515.jpg">
+            </paper-card>
+            <paper-card heading="&nbsp;And it usually means cleaning up our own mess"
+                        image="https://pixabay.com/static/uploads/photo/2015/05/25/05/27/network-782707_960_720.png">
+            </paper-card>
+        </iron-pages>
 
     </template>
 
