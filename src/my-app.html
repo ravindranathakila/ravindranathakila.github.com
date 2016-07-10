@@ -24,8 +24,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import"
       href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import"
-      href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import"
       href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import"
       href="../bower_components/paper-tabs/paper-tabs.html">
@@ -33,6 +31,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       href="../bower_components/paper-tabs/paper-tab.html">
 <link rel="import"
       href="../bower_components/paper-card/paper-card.html">
+<link rel="import"
+      href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import"
       href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import"
@@ -96,7 +96,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <!-- Drawer content -->
             <app-drawer>
-                <app-toolbar>Go to</app-toolbar>
+                <paper-toolbar>Go to</paper-toolbar>
                 <iron-selector selected="[[page]]"
                                attr-for-selected="name"
                                class="drawer-list"
@@ -112,12 +112,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <app-header condenses
                             reveals
                             effects="waterfall">
-                    <app-toolbar>
+                    <paper-toolbar>
                         <paper-icon-button icon="menu"
                                            title="Help"
                                            drawer-toggle></paper-icon-button>
                         <div title>Saving the planet, one service at a time</div>
-                    </app-toolbar>
+                    </paper-toolbar>
                 </app-header>
 
                 <iron-pages role="main"
