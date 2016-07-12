@@ -34,6 +34,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import"
       href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import"
+      href="../bower_components/google-youtube/google-youtube.html">
+<link rel="import"
+      href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import"
+      href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import"
       href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import"
       href="../bower_components/iron-selector/iron-selector.html">
@@ -103,6 +109,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                role="navigation">
                     <a name="introduction"
                        href="/introduction">Introduction</a>
+                    <a name="login"
+                       href="/login">Login</a>
                 </iron-selector>
             </app-drawer>
 
@@ -124,6 +132,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             selected="[[page]]"
                             attr-for-selected="name">
                     <my-introduction name="introduction"></my-introduction>
+                    <my-login name="login"></my-login>
                 </iron-pages>
 
             </app-header-layout>
