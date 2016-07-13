@@ -107,10 +107,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                attr-for-selected="name"
                                class="drawer-list"
                                role="navigation">
+                    <a name="home"
+                       href="/home">Home</a>
                     <a name="introduction"
                        href="/introduction">Introduction</a>
-                    <!--<a name="login"-->
-                       <!--href="/login">Login</a>-->
+                    <a name="book-recommendations"
+                       href="/book-recommendations">Book Recommendations</a>
+                    <a name="tech-recommendations"
+                       href="/tech-recommendations">Tech Recommendations</a>
+                    <a name="tutorials"
+                       href="/tutorials">Tutorials</a>
+                    <a name="login"
+                       href="/login">Login</a>
                 </iron-selector>
             </app-drawer>
 
@@ -124,14 +132,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <paper-icon-button icon="menu"
                                            title="Help"
                                            drawer-toggle></paper-icon-button>
-                        <div title>Saving the planet, one service at a time</div>
+                        <div title>Ravindranath Akila - Just hit ⏎</div>
                     </paper-toolbar>
                 </app-header>
 
                 <iron-pages role="main"
                             selected="[[page]]"
                             attr-for-selected="name">
+                    <my-home name="home"></my-home>
                     <my-introduction name="introduction"></my-introduction>
+                    <my-tutorials name="tutorials"></my-tutorials>
+                    <my-book-recommendations name="book-recommendations"></my-book-recommendations>
+                    <my-tech-recommendations name="tech-recommendations"></my-tech-recommendations>
                     <my-login name="login"></my-login>
                 </iron-pages>
 
@@ -162,7 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ],
 
             _routePageChanged: function (page) {
-                this.page = page || 'introduction';
+                this.page = page || 'home';
             },
 
             _pageChanged: function (page) {

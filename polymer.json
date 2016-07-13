@@ -2,7 +2,11 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
+    "src/my-book-recommendations.html",
+    "src/my-home.html",
     "src/my-introduction.html",
-    "src/my-login.html"
+    "src/my-login.html",
+    "src/my-tech-recommendations.html",
+    "src/my-tutorials.html"
   ]
 }
