@@ -21,7 +21,8 @@
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.6",
     "google-youtube": "GoogleWebComponents/google-youtube#^1.2.1",
     "polymerfire": "firebase/polymerfire#^0.9.4",
-    "firebase-element": "GoogleWebComponents/firebase-element#^1.0.15"
+    "firebase-element": "GoogleWebComponents/firebase-element#^1.0.15",
+    "iron-icons": "PolymerElements/iron-icons#^1.1.3"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
