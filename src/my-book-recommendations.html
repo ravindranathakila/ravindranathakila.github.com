@@ -20,8 +20,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
     </style>
 
+    <style is="custom-style">
+        paper-card.rate {
+            @apply(--layout-horizontal);
+        }
+
+        .rate-image {
+            width: 100px;
+            height: 170px;
+            background: url('../images/books/viktor_frankl.jpg');
+            background-size: cover;
+        }
+
+        .rate-content {
+            @apply(--layout-flex);
+            float: left;
+        }
+
+        .rate-header {
+            @apply(--paper-font-headline);
+        }
+
+        .rate-name {
+            color: var(--paper-grey-50);
+            margin: 10px 0;
+        }
+
+    </style>
+
     <template>
-        Books
+        <paper-card class="rate">
+            <div class="rate-content">
+                <div class="card-content">
+                    <div class="rate-header">Man's Search for Meaning</div>
+                    <div class="rate-name">Viktor Franki</div>
+                    <div>Summary</div>
+                </div>
+                <div class="card-actions">
+                </div>
+            </div>
+            <div class="rate-image"></div>
+        </paper-card>
     </template>
 
     <script>
