@@ -34,6 +34,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import"
       href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import"
+      href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import"
+      href="../bower_components/paper-material/paper-material.html">
+<link rel="import"
+      href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import"
       href="../bower_components/google-youtube/google-youtube.html">
 <link rel="import"
       href="../bower_components/polymerfire/firebase-app.html">
@@ -127,10 +133,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 tail="{{subroute}}"></app-route>
 
         <app-drawer-layout fullbleed>
-
             <!-- Drawer content -->
             <app-drawer>
-                <paper-toolbar>Go to</paper-toolbar>
+                <paper-toolbar>
+                    <div class="title">Ravindranath Akila</div>
+                </paper-toolbar>
                 <iron-selector selected="[[page]]"
                                attr-for-selected="name"
                                class="drawer-list"
@@ -144,11 +151,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         </paper-icon-item>
                     </a>
                     <!--<a name="introduction"-->
-                       <!--href="/introduction">-->
-                        <!--<paper-icon-item>-->
-                            <!--<iron-icon icon="hardware:keyboard-return"></iron-icon>-->
-                            <!--Intro-->
-                        <!--</paper-icon-item>-->
+                    <!--href="/introduction">-->
+                    <!--<paper-icon-item>-->
+                    <!--<iron-icon icon="hardware:keyboard-return"></iron-icon>-->
+                    <!--Intro-->
+                    <!--</paper-icon-item>-->
                     <!--</a>-->
                     <a name="book-recommendations"
                        href="/book-recommendations">
@@ -158,34 +165,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         </paper-icon-item>
                     </a>
                     <!--<a name="tech-recommendations"-->
-                       <!--href="/tech-recommendations">-->
-                        <!--<paper-icon-item>-->
+                    <!--href="/tech-recommendations">-->
+                    <!--<paper-icon-item>-->
 
-                            <!--<iron-icon icon="icons:cloud-done"></iron-icon>-->
-                            <!--Tech-->
-                        <!--</paper-icon-item>-->
+                    <!--<iron-icon icon="icons:cloud-done"></iron-icon>-->
+                    <!--Tech-->
+                    <!--</paper-icon-item>-->
 
                     <!--</a>-->
                     <!--<a name="tutorials"-->
-                       <!--href="/tutorials">-->
-                        <!--<paper-icon-item>-->
-                            <!--<iron-icon icon="social:school"></iron-icon>-->
-                            <!--Tutorials-->
+                    <!--href="/tutorials">-->
+                    <!--<paper-icon-item>-->
+                    <!--<iron-icon icon="social:school"></iron-icon>-->
+                    <!--Tutorials-->
                     <!--</a>-->
                     <!--</paper-icon-item>-->
                     <!--<a name="login"-->
-                       <!--href="/login">-->
-                        <!--<paper-icon-item>-->
-                            <!--<iron-icon icon="icons:lock-open"></iron-icon>-->
-                            <!--Login-->
-                        <!--</paper-icon-item>-->
+                    <!--href="/login">-->
+                    <!--<paper-icon-item>-->
+                    <!--<iron-icon icon="icons:lock-open"></iron-icon>-->
+                    <!--Login-->
+                    <!--</paper-icon-item>-->
                     <!--</a>-->
                 </iron-selector>
             </app-drawer>
 
             <!-- Main content -->
             <app-header-layout has-scrolling-region>
-
                 <app-header condenses
                             reveals
                             effects="waterfall">
@@ -193,7 +199,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <paper-icon-button icon="menu"
                                            title="Help"
                                            drawer-toggle></paper-icon-button>
-                        <div title>Ravindranath Akila - Just hit ⏎</div>
+                        <div class="title">Just hit ⏎</div>
                     </paper-toolbar>
                 </app-header>
 

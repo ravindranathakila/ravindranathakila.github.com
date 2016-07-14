@@ -17,16 +17,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         paper-card {
             --paper-card-header-color: #bdced7;
             --paper-card-background-color: transparent;
+            width: 100%;
         }
     </style>
 
     <template>
+        <paper-card heading="Can I help you? Here's a list of things on this website">
+        </paper-card>
+        <paper-card heading="A reading list">
+            <div class="card-content">
+                I have enlisted a set of books that I suggest you read.
+                On certain topics, I believe my opinion really doesn't cut it.
+                You are better off reading a book.
+            </div>
+        </paper-card>
+        <paper-card heading="About me">
+            <div class="card-content">
+                I have included some information about myself.
+                Ideally I would like to connect with you on <br/><br/>
+                <a href="https://sg.linkedin.com/pub/ravindranath-akila/b/165/b68">
+                    <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png"
+                         width="160"
+                         height="33"
+                         border="0"
+                         alt="View Ravindranath Akila's profile on LinkedIn">
+
+                </a>
+            </div>
+        </paper-card>
     </template>
-
-    <paper-card>
-
-    </paper-card>
-
     <script>
 
         Polymer({
