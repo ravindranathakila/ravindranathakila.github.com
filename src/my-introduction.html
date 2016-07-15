@@ -21,24 +21,128 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <template>
-
+        <paper-card heading="What I chose to"
+                    style="width:100%;"
+                    elevation="0">
+        </paper-card>
         <paper-tabs selected="{{selected}}"
-                    autoselect="0">
-            <paper-tab>Consultation and Engagement</paper-tab>
-            <paper-tab>Services Offered</paper-tab>
-            <paper-tab>What to expect</paper-tab>
+                    autoselect="1">
+            <paper-tab>Know</paper-tab>
+            <paper-tab>Recommend</paper-tab>
+            <paper-tab>Ignore</paper-tab>
         </paper-tabs>
-
         <iron-pages selected="{{selected}}">
-            <paper-card heading="Hello, you can reach out to me via email and phone. The best approach is to connect with me via LinkedIn."
-                        style="width: 100%;">
-            </paper-card>
-            <paper-card heading="Cloud Computing, Big Data, Java, AWS, Google Firebase"
-                        style="width: 100%;">
-            </paper-card>
-            <paper-card heading="A friendly and effecive approach to building tech solutions"
-                        style="width: 100%;">
-            </paper-card>
+            <div>
+                <paper-card heading="Java"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Java can be reliably used for enterprise software development.
+                    </div>
+                    <div class="card-content">
+                        Java has a vast number of stable libraries to support development.
+                    </div>
+                    <div class="card-content">
+                        Java has good conventions over configuration.
+                    </div>
+                </paper-card>
+                <paper-card heading="JavaScript"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Effective in building micro services.
+                    </div>
+                    <div class="card-content">
+                        Easy to get started, hence to assemble a team around development.
+                    </div>
+                </paper-card>
+                <paper-card heading="Swagger"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Because I'm done with defining my own standards.
+                    </div>
+                </paper-card>
+                <paper-card heading="Amazon Web Service (AWS)"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Maintaining your own Enterprise and Startup backend is going to be expensive. Think time and people.
+                    </div>
+                </paper-card>
+                <paper-card heading="Google Firebase"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        For an MVP, Google Firebase saves a lot of time.
+                    </div>
+                </paper-card>
+            </div>
+            <div>
+                <paper-card heading="Enterprise Software Services - Java"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Build your Enterprise backend with Java. Use micro services for handling complex logic.
+                    </div>
+                </paper-card>
+                <paper-card heading="Microservices - Javascript, Java"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Use JavaScript for bulding microservices that do not require something beyong CRUD opreations.
+                    </div>
+                    <div class="card-content">
+                        Use Java for implementing more sophisticated microservices.
+                    </div>
+                </paper-card>
+                <paper-card heading="User Interfaces - Polymer or Angular"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Use Polymer if you have time to develop all the components you need.
+                    </div>
+                    <div class="card-content">
+                        Use Angular if you need to get things done fast.
+                    </div>
+                </paper-card>
+                <paper-card heading="Cloud - Use Amazon Web Services (AWS)"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        If you don't manually create your EC2 instances, you are on the right path.
+                    </div>
+                    <div class="card-content">
+                        Use S3 excessively. Not everything needs to be transactional. But cheap is good, always!
+                    </div>
+                </paper-card>
+                <paper-card heading="Apps - PhoneGap, Ionic 2, Polymer and Google Firebase"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Ionic 2 is very reliable. But when chosing Ionic, remember to evaluate what it actually offers.
+                    </div>
+                    <div class="card-content">
+                        Use PhoneGap. It is a really big waste of time to build yourself.
+                    </div>
+                    <div class="card-content">
+                        Polymer design principals make a lot of sence. It's not magic.
+                    </div>
+                    <div class="card-content">
+                        Unless you want to use API Gateway, AWS Lambda and Cognito, use Google Firebase and achieve shorter TTM (Time To Market).
+                    </div>
+                </paper-card>
+                <paper-card heading="API - Swagger"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        Use Swagger and use a method to generate your API. Just don't do it yourself. Don't do it.
+                    </div>
+                </paper-card>
+            </div>
+            <div>
+                <paper-card heading="PHP"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        No comments
+                    </div>
+                </paper-card>
+                <paper-card heading="Microsoft Azure Cloud"
+                            style="width: 100%;">
+                    <div class="card-content">
+                        No comments
+                    </div>
+                </paper-card>
+            </div>
         </iron-pages>
 
     </template>
