@@ -15,6 +15,7 @@
   "sources": [
     "src/**/*",
     "images/**/*",
-    "bower.json"
+    "bower.json",
+    "index.md"
   ]
 }
