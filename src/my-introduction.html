@@ -8,8 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import"
-      href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
 
 <dom-module id="my-introduction">
     <template>
@@ -19,6 +18,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 --paper-card-background-color: transparent;
             }
         </style>
+
+        <zero-md file="https://raw.githubusercontent.com/zerodevx/zero-md/master/README.md">
+            <!-- Remember to pass in empty container of class="md-html". -->
+            <div class="md-html"></div>
+        </zero-md>
 
         <paper-card heading="What I chose to"
                     style="width:100%;"
@@ -62,7 +66,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <paper-card heading="Amazon Web Service (AWS)"
                             style="width: 100%;">
                     <div class="card-content">
-                        Maintaining your own Enterprise and Startup backend is going to be expensive. Think time and people.
+                        Maintaining your own Enterprise and Startup backend is going to be expensive. Think time and
+                        people.
                     </div>
                 </paper-card>
                 <paper-card heading="Google Firebase"
@@ -82,7 +87,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <paper-card heading="Microservices - Javascript, Java"
                             style="width: 100%;">
                     <div class="card-content">
-                        Use JavaScript for bulding microservices that do not require something beyong CRUD opreations.
+                        Use JavaScript for building microservices that do not require something beyong CRUD opreations.
                     </div>
                     <div class="card-content">
                         Use Java for implementing more sophisticated microservices.
@@ -109,16 +114,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <paper-card heading="Apps - PhoneGap, Ionic 2, Polymer and Google Firebase"
                             style="width: 100%;">
                     <div class="card-content">
-                        Ionic 2 is very reliable. But when chosing Ionic, remember to evaluate what it actually offers.
+                        Ionic 2 is very reliable. But when choosing Ionic, remember to evaluate what it actually offers.
                     </div>
                     <div class="card-content">
                         Use PhoneGap. It is a really big waste of time to build yourself.
                     </div>
                     <div class="card-content">
-                        Polymer design principals make a lot of sence. It's not magic.
+                        Polymer design principals make a lot of sense. It's not magic.
                     </div>
                     <div class="card-content">
-                        Unless you want to use API Gateway, AWS Lambda and Cognito, use Google Firebase and achieve shorter TTM (Time To Market).
+                        Unless you want to use API Gateway, AWS Lambda and Cognito, use Google Firebase and achieve
+                        shorter TTM (Time To Market).
                     </div>
                 </paper-card>
                 <paper-card heading="API - Swagger"

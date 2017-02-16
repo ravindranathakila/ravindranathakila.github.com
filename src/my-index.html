@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/zero-md/zero-md.html">
+
+
+<dom-module id="my-index">
+    <template>
+        <style is="custom-style">
+            paper-card {
+                --paper-card-header-color: #bdced7;
+                --paper-card-background-color: transparent;
+            }
+        </style>
+
+        <paper-card heading="Index"
+                    style="width: 100%;">
+
+            <div class="card-content">
+
+                <zero-md file="../index.md">
+                    <div class="md-html"></div>
+                </zero-md>
+
+            </div>
+
+        </paper-card>
+
+
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'my-index',
+            properties: {
+                route: Object
+            }
+        });
+
+    </script>
+
+</dom-module>
