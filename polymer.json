@@ -2,11 +2,19 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
+    "src/my-app.html",
     "src/my-book-recommendations.html",
     "src/my-home.html",
+    "src/my-icons.html",
+    "src/my-index.html",
     "src/my-introduction.html",
     "src/my-login.html",
     "src/my-tech-recommendations.html",
     "src/my-tutorials.html"
+  ],
+  "sources": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
   ]
 }
