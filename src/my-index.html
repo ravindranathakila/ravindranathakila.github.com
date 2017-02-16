@@ -13,12 +13,11 @@
 
         <template is="dom-repeat" items="{{index.files}}">
 
-            <paper-card heading="Index"
-                        style="width: 100%;">
+            <paper-card style="width: 100%;">
 
                 <div class="card-content">
 
-                    <zero-md file="../{{item.name}}">
+                    <zero-md file="{{item.name}}">
                         <div class="md-html"></div>
                     </zero-md>
 
@@ -40,7 +39,7 @@
 
             ready: function () {
 
-                this.importHref('src/polymer.json', function (e) {
+                this.importHref('https://raw.githubusercontent.com/ravindranathakila/public/master/polymer.json', function (e) {
 
                     this.index = JSON.parse(e.target.import.body.innerHTML);
 
