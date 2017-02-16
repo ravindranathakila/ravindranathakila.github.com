@@ -10,19 +10,22 @@
             }
         </style>
 
-        <paper-card heading="Index"
-                    style="width: 100%;">
+        <template is="dom-repeat" items="{{files}}">
 
-            <div class="card-content">
+            <paper-card heading="Index"
+                        style="width: 100%;">
 
-                <zero-md file="../index.md">
-                    <div class="md-html"></div>
-                </zero-md>
+                <div class="card-content">
 
-            </div>
+                    <zero-md file="../{{item.name}}">
+                        <div class="md-html"></div>
+                    </zero-md>
 
-        </paper-card>
+                </div>
 
+            </paper-card>
+
+        </template>
 
     </template>
 
@@ -32,6 +35,11 @@
             is: 'my-index',
             properties: {
                 route: Object
+            },
+            ready: function () {
+                this.files = [
+                    {name: 'index.md', description: 'index.md'}
+                ];
             }
         });
 
