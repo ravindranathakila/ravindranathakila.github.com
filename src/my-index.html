@@ -2,18 +2,31 @@
 
 
 <dom-module id="my-index">
-
-    <style is="custom-style">
-        paper-card {
-            --paper-card-header-color: #bdced7;
-            --paper-card-background-color: transparent;
-        }
-    </style>
-
     <template>
 
-        <div id="container">
-        </div>
+        <style is="custom-style">
+            paper-card {
+                --paper-card-header-color: #bdced7;
+                --paper-card-background-color: transparent;
+            }
+        </style>
+
+        <template is="dom-repeat" items="{{index.files}}">
+
+            <paper-card heading="Index"
+                        style="width: 100%;">
+
+                <div class="card-content">
+
+                    <zero-md file="../{{item.name}}">
+                        <div class="md-html"></div>
+                    </zero-md>
+
+                </div>
+
+            </paper-card>
+
+        </template>
 
     </template>
 
@@ -21,26 +34,21 @@
         Polymer({
             is: 'my-index',
             properties: {
-                route: Object
+                route: Object,
+                index: Object
             },
+
             ready: function () {
-                this.files = [
-                    {name: 'index.md'}
-                ];
 
+                this.importHref('src/polymer.json', function (e) {
 
-                this.importHref('src/polymer.js', function (e) {
+                    this.index = JSON.parse(e.target.import.body.innerHTML);
 
-
-                    var z = document.createElement('div');
-                    z.innerHTML = 'test satu dua tiga';
-
-                    this.$.container.appendChild(e.target.import.body);
-                    console.log(e.target.import);
+                    console.log(e.target.import.body.innerHTML);
+                    console.log(this.index.files);
 
                 }, function (e) {
-                    alert(JSON.stringify(e));
-                    // loading error
+
                 });
             }
         });
