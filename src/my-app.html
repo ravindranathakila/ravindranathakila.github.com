@@ -220,9 +220,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 page: {
                     type: String,
                     reflectToAttribute: true,
-                    observer: '_pageChanged'
+                    observer: '_pageChanged',
                 },
-
+                file: String
             },
 
             observers: [
@@ -235,8 +235,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             _pageChanged: function (page) {
                 // load page import on demand.
-                this.importHref(
+
+                console.log("path:" + this.route.path);
+
+                if (this.route.path.startsWith("/index/") != 0) {
+                    var tail = this.route.path.replace("/index/", "");
+                    console.log("tail:" + tail);
+
+                    this.importHref(
+                        this.resolveUrl('my-' + 'file' + '.html'), null, null, true);
+                } else {
+                    this.importHref(
                         this.resolveUrl('my-' + page + '.html'), null, null, true);
+                }
             }
 
         });
