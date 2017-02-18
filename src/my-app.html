@@ -83,175 +83,60 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import"
       href="../bower_components/paper-ripple/paper-ripple.html">
+<link rel="import"
+      href="../bower_components/zero-md/zero-md.html">
 
 <dom-module id="my-app">
 
     <template>
 
-        <style>
-
-            :host {
-                display: block;
-                --app-primary-color: #232323;
-                --app-secondary-color: black;
+        <style is="custom-style">
+            paper-card {
+                --paper-card-header-color: #bdced7;
+                --paper-card-background-color: transparent;
             }
-
-            app-header {
-                background-color: var(--app-primary-color);
-                color: #fff;
-            }
-
-            app-header paper-icon-button {
-                --paper-icon-button-ink-color: white;
-            }
-
-            .drawer-list {
-                margin: 0 20px;
-            }
-
-            .drawer-list a {
-                display: block;
-                padding: 0 16px;
-                line-height: 40px;
-                text-decoration: none;
-                color: var(--app-secondary-color);
-            }
-
-            .drawer-list a.iron-selected {
-                color: black;
-                font-weight: bold;
-            }
-
-            .drawer-list a.subroute {
-                padding-left: 32px;
-            }
-
-
         </style>
 
-        <app-location route="{{route}}"></app-location>
-        <app-route
-                route="{{route}}"
-                pattern="/:page"
-                data="{{routeData}}"
-                tail="{{subroute}}"></app-route>
+        <template is="dom-repeat" items="{{index.files}}">
 
-        <app-drawer-layout fullbleed>
-            <!-- Drawer content -->
-            <app-drawer>
-                <paper-toolbar>
-                    <div class="title">Ravindranath Akila</div>
-                </paper-toolbar>
-                <iron-selector selected="[[page]]"
-                               attr-for-selected="name"
-                               class="drawer-list"
-                               role="navigation">
-                    <paper-ripple></paper-ripple>
-                    <a name="home"
-                       href="/home">
-                        <paper-icon-item>
-                            <iron-icon icon="icons:home"></iron-icon>
-                            Home
-                        </paper-icon-item>
-                    </a>
-                    <a name="introduction"
-                       href="/introduction">
-                        <paper-icon-item>
-                            <iron-icon icon="hardware:keyboard-return"></iron-icon>
-                            Intro
-                        </paper-icon-item>
-                    </a>
-                    <a name="book-recommendations"
-                       href="/book-recommendations">
-                        <paper-icon-item>
-                            <iron-icon icon="icons:book"></iron-icon>
-                            Books
-                        </paper-icon-item>
-                    </a>
-                    <a name="index"
-                       href="/index">
-                        <paper-icon-item>
-                            <iron-icon icon="icons:list"></iron-icon>
-                            Index
-                        </paper-icon-item>
-                    </a>
-                </iron-selector>
-            </app-drawer>
+            <paper-card style="width: 100%;">
 
-            <!-- Main content -->
-            <app-header-layout has-scrolling-region>
-                <app-header condenses
-                            reveals
-                            effects="waterfall">
-                    <paper-toolbar>
-                        <paper-icon-button icon="menu"
-                                           title="Help"
-                                           drawer-toggle></paper-icon-button>
-                        <div class="title">Just hit ⏎</div>
-                    </paper-toolbar>
-                </app-header>
+                <div class="card-content">
 
-                <iron-pages role="main"
-                            selected="[[page]]"
-                            attr-for-selected="name">
-                    <my-home name="home"></my-home>
-                    <my-introduction name="introduction"></my-introduction>
-                    <my-tutorials name="tutorials"></my-tutorials>
-                    <my-book-recommendations name="book-recommendations"></my-book-recommendations>
-                    <my-tech-recommendations name="tech-recommendations"></my-tech-recommendations>
-                    <my-index name="index"></my-index>
-                    <my-login name="login"></my-login>
-                </iron-pages>
+                    <zero-md file="{{item.name}}">
+                        <div class="md-html"></div>
+                    </zero-md>
 
-            </app-header-layout>
+                </div>
 
-        </app-drawer-layout>
+            </paper-card>
+
+        </template>
 
     </template>
 
     <script>
-
         Polymer({
-
             is: 'my-app',
-
             properties: {
-
-                page: {
-                    type: String,
-                    reflectToAttribute: true,
-                    observer: '_pageChanged',
-                },
-                file: String
+                route: Object,
+                index: Object
             },
 
-            observers: [
-                '_routePageChanged(routeData.page)'
-            ],
+            ready: function () {
 
-            _routePageChanged: function (page) {
-                this.page = page || 'home';
-            },
+                this.importHref('https://raw.githubusercontent.com/ravindranathakila/public/master/polymer.json', function (e) {
 
-            _pageChanged: function (page) {
-                // load page import on demand.
+                    this.index = JSON.parse(e.target.import.body.innerHTML);
 
-                console.log("path:" + this.route.path);
+                    console.log(e.target.import.body.innerHTML);
+                    console.log(this.index.files);
 
-                if (this.route.path.startsWith("/index/") != 0) {
-                    var tail = this.route.path.replace("/index/", "");
-                    console.log("tail:" + tail);
+                }, function (e) {
 
-                    this.importHref(
-                        this.resolveUrl('my-' + 'file' + '.html'), null, null, true);
-                } else {
-                    this.importHref(
-                        this.resolveUrl('my-' + page + '.html'), null, null, true);
-                }
+                });
             }
-
         });
-
     </script>
 
 </dom-module>
