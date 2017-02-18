@@ -11,21 +11,39 @@
             }
         </style>
 
-        <template is="dom-repeat" items="{{index.files}}">
+        <app-location route="{{route}}"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="/:page"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
 
-            <paper-card style="width: 100%;">
+        <iron-selector selected="[[page]]"
+                       attr-for-selected="name"
+                       class="drawer-list"
+                       role="navigation">
+            <paper-ripple></paper-ripple>
 
-                <div class="card-content">
+            <template is="dom-repeat" items="{{index.files}}">
 
-                    <zero-md file="{{item.name}}">
-                        <div class="md-html"></div>
-                    </zero-md>
+                <a name="/index/123"
+                   href="/index/123">
+                    <paper-icon-item>
+                        <iron-icon icon="icons:list"></iron-icon>
+                        Index
+                    </paper-icon-item>
+                </a>
 
-                </div>
+            </template>
 
-            </paper-card>
+        </iron-selector>
 
-        </template>
+        <iron-pages role="main"
+                    selected="[[page]]"
+                    attr-for-selected="name">
+            <my-file name="file"></my-file>
+        </iron-pages>
+
 
     </template>
 
@@ -34,7 +52,14 @@
             is: 'my-index',
             properties: {
                 route: Object,
-                index: Object
+                index: Object,
+
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged',
+                },
+                file: String
             },
 
             ready: function () {
@@ -49,6 +74,32 @@
                 }, function (e) {
 
                 });
+            },
+
+
+            observers: [
+                '_routePageChanged(routeData.page)'
+            ],
+
+            _routePageChanged: function (page) {
+                this.page = page || 'home';
+            },
+
+            _pageChanged: function (page) {
+                // load page import on demand.
+
+                console.log("path:" + this.route.path);
+
+                if (this.route.path.startsWith("/index/") != 0) {
+                    var tail = this.route.path.replace("/index/", "");
+                    console.log("tail:" + tail);
+
+                    this.importHref(
+                        this.resolveUrl('my-' + 'file' + '.html'), null, null, true);
+                } else {
+                    this.importHref(
+                        this.resolveUrl('my-' + page + '.html'), null, null, true);
+                }
             }
         });
     </script>

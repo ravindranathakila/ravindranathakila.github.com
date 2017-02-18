@@ -1,0 +1,46 @@
+<link rel="import" href="../bower_components/zero-md/zero-md.html">
+
+
+<dom-module id="my-index">
+    <template>
+
+        <style is="custom-style">
+            paper-card {
+                --paper-card-header-color: #bdced7;
+                --paper-card-background-color: transparent;
+            }
+        </style>
+
+        <paper-card style="width: 100%;">
+
+            <div class="card-content">
+
+                <zero-md file="{{find(}}">
+                    <div class="md-html"></div>
+                </zero-md>
+
+            </div>
+
+        </paper-card>
+
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-index',
+            properties: {
+                route: Object,
+                file: String
+            },
+            ready: function () {
+            },
+            find: function () {
+                console.log('File Loading');
+                return "https://raw.githubusercontent.com/ravindranathakila/public/master/post.20141125000000.md"
+            },
+
+        });
+    </script>
+
+</dom-module>
