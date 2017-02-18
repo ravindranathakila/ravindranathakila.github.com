@@ -97,6 +97,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
         </style>
 
+        <app-location route="{{route}}"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="/:page"
+                data="{{data}}"
+                tail="{{tail}}">
+        </app-route>
+
+
         <template is="dom-repeat" items="{{index.files}}">
 
             <paper-card style="width: 100%;">
@@ -119,15 +128,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         Polymer({
             is: 'my-app',
             properties: {
+                index: Object,
                 route: Object,
-                index: Object
+                page: Object,
+                data: Object,
+                tail: Object
             },
 
             ready: function () {
 
+                console.log("route" + JSON.stringify(this.route));
+                console.log("page" + JSON.stringify(this.page));
+                console.log("data" + JSON.stringify(this.data));
+                console.log("tail" + JSON.stringify(this.tail));
+
                 this.importHref('https://raw.githubusercontent.com/ravindranathakila/public/master/polymer.json', function (e) {
 
                     this.index = JSON.parse(e.target.import.body.innerHTML);
+
 
                     console.log(e.target.import.body.innerHTML);
                     console.log(this.index.files);
