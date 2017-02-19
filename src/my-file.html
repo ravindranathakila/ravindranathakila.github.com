@@ -1,6 +1,3 @@
-<link rel="import" href="../bower_components/zero-md/zero-md.html">
-
-
 <dom-module id="my-index">
     <template>
 
@@ -11,18 +8,20 @@
             }
         </style>
 
-        <paper-card style="width: 100%;">
+        <template>
+            <paper-card style="width: 100%;">
 
-            <div class="card-content">
+                <div class="card-content">
 
-                <zero-md file="{{find(}}">
-                    <div class="md-html"></div>
-                </zero-md>
+                    <zero-md
+                            file="https://raw.githubusercontent.com/ravindranathakila/public/master/{{route.path}}">
+                        <div class="md-html"></div>
+                    </zero-md>
 
-            </div>
+                </div>
 
-        </paper-card>
-
+            </paper-card>
+        </template>
 
     </template>
 
@@ -30,16 +29,8 @@
         Polymer({
             is: 'my-index',
             properties: {
-                route: Object,
-                file: String
-            },
-            ready: function () {
-            },
-            find: function () {
-                console.log('File Loading');
-                return "https://raw.githubusercontent.com/ravindranathakila/public/master/post.20141125000000.md"
-            },
-
+                route: Object
+            }
         });
     </script>
 

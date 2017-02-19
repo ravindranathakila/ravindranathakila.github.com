@@ -85,6 +85,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       href="../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import"
       href="../bower_components/zero-md/zero-md.html">
+<link rel="import"
+      href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import"
+      href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 
 <dom-module id="my-app">
 
@@ -97,7 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
         </style>
 
-        <app-location route="{{route}}"></app-location>
+        <app-location use-hash-as-path route="{{route}}"></app-location>
         <app-route
                 route="{{route}}"
                 pattern="/:page"
@@ -106,23 +110,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </app-route>
 
 
-        <template is="dom-repeat" items="{{index.files}}">
+        <paper-dropdown-menu label="Select Post..">
+            <paper-listbox class="dropdown-content" selected="1">
+                <template is="dom-repeat" items="{{index.files}}">
+                    <paper-item>
+                        <paper-button>
+                            <a href="#{{item.name}}" style="text-decoration: none;background-color: transparent;">{{item.title}}</a>
+                        </paper-button>
+                        <br/>
+                    </paper-item>
+                </template>
+            </paper-listbox>
+        </paper-dropdown-menu>
 
-            <paper-card style="width: 100%;">
+        <paper-card style="width: 100%;">
 
-                <div class="card-content">
+            <zero-md file="https://raw.githubusercontent.com/ravindranathakila/public/master/{{route.path}}">
+                <div class="md-html"></div>
+            </zero-md>
 
-                    <zero-md file="{{item.name}}">
-                        <div class="md-html"></div>
-                    </zero-md>
-
-                </div>
-
-            </paper-card>
-
-        </template>
+        </paper-card>
 
     </template>
+
 
     <script>
         Polymer({
@@ -146,9 +156,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
                     this.index = JSON.parse(e.target.import.body.innerHTML);
 
-
                     console.log(e.target.import.body.innerHTML);
                     console.log(this.index.files);
+                    console.log(this.route.path);
+
+////                    if (this.data.page)
+//                    var link = this.importHref(this.resolveUrl('my-file.html'),
+//                        function () {
+////                            Polymer.dom(this.$.content).appendChild(link.import.body);
+//
+////                            var newElement = document.createElement('new-element');
+////                            newElement.myProperty = 'foo';
+////
+////                            console.log(link.import.body);
+////
+////                            Polymer.dom(this.$.content).appendChild(link.import.body);
+//                        },
+//                        function () {
+//                            console.log("error");
+//                        }
+//                    );
 
                 }, function (e) {
 
