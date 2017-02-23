@@ -142,9 +142,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 route: Object,
                 page: Object,
                 data: Object,
-                tail: Object
+                tail: Object,
+                title: String,
+                description: String
             },
-
+            observers: [
+                '_routeChanged(route.*)',
+                '_viewChanged(data.view)'
+            ],
             ready: function () {
 
                 console.log("route" + JSON.stringify(this.route));
@@ -160,26 +165,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     console.log(this.index.files);
                     console.log(this.route.path);
 
-////                    if (this.data.page)
-//                    var link = this.importHref(this.resolveUrl('my-file.html'),
-//                        function () {
-////                            Polymer.dom(this.$.content).appendChild(link.import.body);
-//
-////                            var newElement = document.createElement('new-element');
-////                            newElement.myProperty = 'foo';
-////
-////                            console.log(link.import.body);
-////
-////                            Polymer.dom(this.$.content).appendChild(link.import.body);
-//                        },
-//                        function () {
-//                            console.log("error");
-//                        }
-//                    );
-
+                    if (this.route.path != '') {
+                        this.change();
+                    }
                 }, function (e) {
 
                 });
+            },
+            _routeChanged: function (changeRecord) {
+                this.change();
+                console.log("route changed")
+            },
+            _viewChanged: function (view) {
+                console.log("view changed")
+            },
+            change: function () {
+
+                if (!this.index) {
+                    return;
+                }
+
+                console.log(this.index.files[0].title);
+                console.log(this.route.path);
+
+                path = this.route.path;
+
+                this.title = this.index.files.filter(function (obj) {
+                    return obj.name == path;
+                })[0].title;
+
+                window.document.title = this.title;
+
+
+                this.description = this.index.files.filter(function (obj) {
+                    return obj.name == path;
+                })[0].description;
+
+                window.document.description = this.description;
+
+
             }
         });
     </script>
