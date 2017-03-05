@@ -14,39 +14,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import"
       href="../bower_components/app-route/app-route.html">
 <link rel="import"
-      href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import"
-      href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import"
       href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import"
-      href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import"
-      href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+      href="../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import"
       href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import"
-      href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import"
-      href="../bower_components/paper-tabs/paper-tab.html">
-<link rel="import"
       href="../bower_components/paper-card/paper-card.html">
-<link rel="import"
-      href="../bower_components/paper-toolbar/paper-toolbar.html">
-<link rel="import"
-      href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import"
       href="../bower_components/paper-material/paper-material.html">
 <link rel="import"
-      href="../bower_components/paper-fab/paper-fab.html">
-<link rel="import"
       href="../bower_components/paper-button/paper-button.html">
-<link rel="import"
-      href="../bower_components/google-youtube/google-youtube.html">
-<link rel="import"
-      href="../bower_components/polymerfire/firebase-app.html">
-<link rel="import"
-      href="../bower_components/polymerfire/firebase-auth.html">
 <link rel="import"
       href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import"
@@ -87,8 +65,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       href="../bower_components/zero-md/zero-md.html">
 <link rel="import"
       href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-<link rel="import"
-      href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 
 <dom-module id="my-app">
 
@@ -109,8 +85,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 tail="{{tail}}">
         </app-route>
 
+        <paper-spinner id="busy"></paper-spinner>
 
-        <paper-dropdown-menu label="Select Post..">
+        <paper-dropdown-menu id="menu" hidden$="{{menu_hidden}}">
             <paper-listbox class="dropdown-content" selected="1">
                 <template is="dom-repeat" items="{{index.files}}">
                     <paper-item>
@@ -144,13 +121,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 data: Object,
                 tail: Object,
                 title: String,
-                description: String
+                description: String,
+                menu_hidden: {
+                    type: Boolean,
+                    value: true // init the value to true so it will be hidden on page load
+                }
             },
             observers: [
                 '_routeChanged(route.*)',
                 '_viewChanged(data.view)'
             ],
             ready: function () {
+
+
+                var busy = this.$.busy;
+
+                busy.active = true;
 
                 console.log("route" + JSON.stringify(this.route));
                 console.log("page" + JSON.stringify(this.page));
@@ -164,6 +150,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     console.log(e.target.import.body.innerHTML);
                     console.log(this.index.files);
                     console.log(this.route.path);
+
+                    this.menu_hidden = false;
+                    busy.active = false;
 
                     if (this.route.path != '') {
                         this.change();
