@@ -108,6 +108,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         </paper-card>
 
+        <template is="dom-repeat" items="{{index.files}}" id="all_files">
+
+            <paper-card style="width: 100%;">
+
+                <div class="card-content" hidden$="{{all_files_hidden}}">
+
+                    <zero-md file="https://raw.githubusercontent.com/ravindranathakila/public/master/{{item.name}}">
+                        <div class="md-html"></div>
+                    </zero-md>
+
+                </div>
+
+            </paper-card>
+
+        </template>
+
     </template>
 
 
@@ -125,7 +141,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 menu_hidden: {
                     type: Boolean,
                     value: true // init the value to true so it will be hidden on page load
+                },
+                all_files_hidden: {
+                    type: Boolean,
+                    value: false // init the value to true so it will be hidden on page load
                 }
+            },
+            listeners: {
+                'menu.tap': 'menu_tapped'
             },
             observers: [
                 '_routeChanged(route.*)',
@@ -167,6 +190,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             _viewChanged: function (view) {
                 console.log("view changed")
+            },
+            menu_tapped: function (event) {
+                console.log("menu_tapped");
+                this.all_files_hidden = true;
             },
             change: function () {
 
